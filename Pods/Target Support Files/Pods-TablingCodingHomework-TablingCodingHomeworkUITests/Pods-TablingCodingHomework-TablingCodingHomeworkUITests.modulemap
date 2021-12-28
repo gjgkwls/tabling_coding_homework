@@ -1,0 +1,6 @@
+framework module Pods_TablingCodingHomework_TablingCodingHomeworkUITests {
+  umbrella header "Pods-TablingCodingHomework-TablingCodingHomeworkUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
