@@ -12,9 +12,8 @@ class LikeStoreCell: UITableViewCell {
     @IBOutlet weak var classLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var reviewLbl: UILabel!
-    @IBOutlet weak var addrLbl: UILabel!
-    @IBOutlet weak var isRemoteLbl: UILabel!
     @IBOutlet weak var waitingCountLbl: UILabel!
+    @IBOutlet weak var isRemoteLbl: UILabel!
     
     var store:LikeStore?
     
@@ -23,9 +22,14 @@ class LikeStoreCell: UITableViewCell {
         
         classLbl.text = store!.classification
         nameLbl.text = store!.restaurantName
-        reviewLbl.text = "\(store!.rating) (\(getReviewCount(store!.reviewCount)))"
-        addrLbl.text = store!.summaryAddress
-        isRemoteLbl.text = getIsRemoteResult(store!.isRemoteWaiting, store!.isQuickBooking)
+        
+        // 주소만 회색으로 변경
+        let reviewStr = "\(store!.rating) (\(getReviewCount(store!.reviewCount)))  \(store!.summaryAddress)"
+        let attributedString = NSMutableAttributedString(string: reviewStr)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.gray, range: (reviewStr as NSString).range(of: store!.summaryAddress))
+        reviewLbl.attributedText = attributedString
+        
+        isRemoteLbl.text =  getIsRemoteResult(store!.isRemoteWaiting, store!.isQuickBooking)
         
         if store!.isQuickBooking {
             waitingCountLbl.isHidden = true
@@ -43,11 +47,10 @@ class LikeStoreCell: UITableViewCell {
         }
         
         let session = URLSession.shared
-        
         let dataTask = session.dataTask(with: url!) { (data, response, error) in
             if(error == nil && data != nil){
                 if(self.store!.thumbnail == urlString){
-                    // image를 변경하는 작업은 UI를 변경시키는 작업이므로 main thread에서 돌려주어야 합니다.
+                    // main thread에서 image 변경
                     DispatchQueue.main.async {
                         self.storeImgView.image = UIImage(data: data!)
                     }
@@ -67,9 +70,13 @@ class LikeStoreCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
+    override func prepareForReuse() {
+        // cell 이미지 재사용시 문제 해결
+        storeImgView.image = nil
+    }
+    
     func getReviewCount(_ reviewCount: Int) -> String {
         return (reviewCount > 300) ? "300+" : String(reviewCount)
     }

@@ -18,6 +18,8 @@ class LikeStoreModel {
     func getLikeStores(_ segControlVal:Int) {
         
         var urlString = "https://my-json-server.typicode.com/tabling/tabling_mobile_test"
+        
+        // 저장 or 최근본 
         urlString += segControlVal == 0 ? "/save" : "/recent"
         
         let url = URL(string: urlString)

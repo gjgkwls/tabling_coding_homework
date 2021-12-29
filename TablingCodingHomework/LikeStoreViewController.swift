@@ -11,6 +11,7 @@ import Foundation
 
 class LikeStoreViewController: UIViewController {
     @IBOutlet weak var likeStoreTableView: UITableView!
+    @IBOutlet weak var segControl: UISegmentedControl!
     
     var likeStores = [LikeStore]()
     var model = LikeStoreModel()
@@ -28,25 +29,22 @@ class LikeStoreViewController: UIViewController {
     }
     
     @IBAction func clickedSegControl(_ sender: UISegmentedControl) {
+        // TODO: 오픈소스 사용하여 tab으로 구현
         switch sender.selectedSegmentIndex {
         case 0:
-            print("저장")
-            segControlVal = 1
+            segControlVal = 0
             model.getLikeStores(segControlVal)
         case 1:
-            print("최근본")
             segControlVal = 1
             model.getLikeStores(segControlVal)
         default:
-            print("default")
+            model.getLikeStores(segControlVal)
         }
     }
-    
 }
 
 extension LikeStoreViewController:LikeStoreModelProtocol {
     func likeStoresRetrieved(stores: [LikeStore]) {
-        
         self.likeStores.removeAll()
         self.likeStores = stores
         likeStoreTableView.reloadData()
@@ -60,16 +58,15 @@ extension LikeStoreViewController:UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StoreCell", for: indexPath) as! LikeStoreCell
         let store = self.likeStores[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StoreCell", for: indexPath) as! LikeStoreCell
         cell.displayLikeStore(storeParam: store)
         
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        // cell 선택시
     }
-    
 }

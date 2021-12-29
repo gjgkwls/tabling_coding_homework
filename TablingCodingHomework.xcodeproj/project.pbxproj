@@ -18,12 +18,11 @@
 		CE0187122779A1E70032E290 /* TablingCodingHomeworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0187112779A1E70032E290 /* TablingCodingHomeworkUITests.swift */; };
 		CE0187142779A1E70032E290 /* TablingCodingHomeworkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0187132779A1E70032E290 /* TablingCodingHomeworkUITestsLaunchTests.swift */; };
 		CE0187252779AC010032E290 /* LikeStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0187242779AC010032E290 /* LikeStoreViewController.swift */; };
-		CE0187292779B0AC0032E290 /* LikeStoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0187282779B0AC0032E290 /* LikeStoreTableViewController.swift */; };
 		CE01872D2779B8FE0032E290 /* Pods_TablingCodingHomework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96891B719D67065E789F2D52 /* Pods_TablingCodingHomework.framework */; };
 		CE0187312779BBCE0032E290 /* LikeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0187302779BBCE0032E290 /* LikeStore.swift */; };
 		CE0187332779C3030032E290 /* LikeStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0187322779C3030032E290 /* LikeStoreModel.swift */; };
 		CE018735277A11220032E290 /* LikeStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE018734277A11220032E290 /* LikeStoreCell.swift */; };
-		CE018737277AEA930032E290 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE018736277AEA930032E290 /* TabBarController.swift */; };
+		CE01873E277CE5F00032E290 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01873D277CE5F00032E290 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,11 +64,10 @@
 		CE0187112779A1E70032E290 /* TablingCodingHomeworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablingCodingHomeworkUITests.swift; sourceTree = "<group>"; };
 		CE0187132779A1E70032E290 /* TablingCodingHomeworkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablingCodingHomeworkUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CE0187242779AC010032E290 /* LikeStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeStoreViewController.swift; sourceTree = "<group>"; };
-		CE0187282779B0AC0032E290 /* LikeStoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeStoreTableViewController.swift; sourceTree = "<group>"; };
 		CE0187302779BBCE0032E290 /* LikeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeStore.swift; sourceTree = "<group>"; };
 		CE0187322779C3030032E290 /* LikeStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeStoreModel.swift; sourceTree = "<group>"; };
 		CE018734277A11220032E290 /* LikeStoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeStoreCell.swift; sourceTree = "<group>"; };
-		CE018736277AEA930032E290 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		CE01873D277CE5F00032E290 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F1F01BAE3193DB4F4193D42E /* Pods-TablingCodingHomeworkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TablingCodingHomeworkTests.debug.xcconfig"; path = "Target Support Files/Pods-TablingCodingHomeworkTests/Pods-TablingCodingHomeworkTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,11 +144,10 @@
 				CE0186FB2779A1E70032E290 /* LaunchScreen.storyboard */,
 				CE0186FE2779A1E70032E290 /* Info.plist */,
 				CE0187242779AC010032E290 /* LikeStoreViewController.swift */,
-				CE0187282779B0AC0032E290 /* LikeStoreTableViewController.swift */,
 				CE0187302779BBCE0032E290 /* LikeStore.swift */,
 				CE0187322779C3030032E290 /* LikeStoreModel.swift */,
 				CE018734277A11220032E290 /* LikeStoreCell.swift */,
-				CE018736277AEA930032E290 /* TabBarController.swift */,
+				CE01873D277CE5F00032E290 /* TabBarController.swift */,
 			);
 			path = TablingCodingHomework;
 			sourceTree = "<group>";
@@ -423,10 +420,9 @@
 			files = (
 				CE018735277A11220032E290 /* LikeStoreCell.swift in Sources */,
 				CE0187332779C3030032E290 /* LikeStoreModel.swift in Sources */,
-				CE0187292779B0AC0032E290 /* LikeStoreTableViewController.swift in Sources */,
-				CE018737277AEA930032E290 /* TabBarController.swift in Sources */,
 				CE0186F12779A1E50032E290 /* AppDelegate.swift in Sources */,
 				CE0186F32779A1E50032E290 /* SceneDelegate.swift in Sources */,
+				CE01873E277CE5F00032E290 /* TabBarController.swift in Sources */,
 				CE0187312779BBCE0032E290 /* LikeStore.swift in Sources */,
 				CE0187252779AC010032E290 /* LikeStoreViewController.swift in Sources */,
 			);
@@ -620,7 +616,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hajin.TablingCodingHomework;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hajin.tabling.TablingCodingHomework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -648,7 +644,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hajin.TablingCodingHomework;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hajin.tabling.TablingCodingHomework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
