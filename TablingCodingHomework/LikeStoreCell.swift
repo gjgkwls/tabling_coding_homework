@@ -16,6 +16,7 @@ class LikeStoreCell: UITableViewCell {
     @IBOutlet weak var isRemoteLbl: UILabel!
     
     var store:LikeStore?
+    var delegate: LikeStoreModelProtocol?
     
     func displayLikeStore(storeParam: LikeStore){
         self.store = storeParam
@@ -60,6 +61,10 @@ class LikeStoreCell: UITableViewCell {
         
         dataTask.resume()
         
+    }
+    
+    @IBAction func clickedBtn(_ sender: UIButton) {
+        self.delegate?.likeSotresCellClicked(store: self.store!)
     }
     
     override func awakeFromNib() {

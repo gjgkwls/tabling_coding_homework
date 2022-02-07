@@ -9,6 +9,7 @@ import Foundation
 
 protocol LikeStoreModelProtocol {
     func likeStoresRetrieved(stores:[LikeStore])
+    func likeSotresCellClicked(store: LikeStore)
 }
 
 class LikeStoreModel {

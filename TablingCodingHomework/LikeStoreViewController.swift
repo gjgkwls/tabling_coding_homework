@@ -49,6 +49,14 @@ extension LikeStoreViewController:LikeStoreModelProtocol {
         self.likeStores = stores
         likeStoreTableView.reloadData()
     }
+    
+    func likeSotresCellClicked(store: LikeStore) {
+        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {return}
+        
+        detailVC.storeData = store
+        self.present(detailVC, animated: true, completion: nil)
+    }
+    
 }
 
 extension LikeStoreViewController:UITableViewDelegate, UITableViewDataSource {
@@ -62,6 +70,7 @@ extension LikeStoreViewController:UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreCell", for: indexPath) as! LikeStoreCell
         cell.displayLikeStore(storeParam: store)
+        cell.delegate = self
         
         return cell
     }
