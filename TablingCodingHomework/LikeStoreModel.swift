@@ -9,14 +9,13 @@ import Foundation
 
 protocol LikeStoreModelProtocol {
     func likeStoresRetrieved(stores:[LikeStore])
-    func likeSotresCellClicked(store: LikeStore)
 }
 
 class LikeStoreModel {
     
     var delegate:LikeStoreModelProtocol?
     
-    func getLikeStores(_ segControlVal:Int) {
+    func getLikeStores(_ segControlVal:Int, complition: @escaping ([LikeStore]) -> Void ) {
         
         var urlString = "https://my-json-server.typicode.com/tabling/tabling_mobile_test"
         
@@ -34,10 +33,10 @@ class LikeStoreModel {
             if error == nil && data != nil {
                 let decoder = JSONDecoder()
                 do{
-                     let likeStoreService = try decoder.decode(LikeStoreList.self, from: data!)
-
+                    let likeStoreService = try decoder.decode(LikeStoreList.self, from: data!)
+ 
                     DispatchQueue.main.async {
-                        self.delegate?.likeStoresRetrieved(stores: likeStoreService.list)
+                        complition(likeStoreService.list)
                     }
                 }
                 catch {

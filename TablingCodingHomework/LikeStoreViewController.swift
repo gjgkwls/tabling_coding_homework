@@ -24,8 +24,7 @@ class LikeStoreViewController: UIViewController {
         likeStoreTableView.delegate = self
         likeStoreTableView.dataSource = self
         
-        model.delegate = self
-        model.getLikeStores(segControlVal)
+        self.likeStoresRetrieved()
     }
     
     @IBAction func clickedSegControl(_ sender: UISegmentedControl) {
@@ -33,30 +32,32 @@ class LikeStoreViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             segControlVal = 0
-            model.getLikeStores(segControlVal)
+            self.likeStoresRetrieved()
         case 1:
             segControlVal = 1
-            model.getLikeStores(segControlVal)
+            self.likeStoresRetrieved()
         default:
-            model.getLikeStores(segControlVal)
+            self.likeStoresRetrieved()
+        }
+    }
+    
+    func likeStoresRetrieved() {
+        model.getLikeStores(segControlVal) { stores in
+            self.likeStores.removeAll()
+            self.likeStores = stores
+            self.likeStoreTableView.reloadData()
         }
     }
 }
 
-extension LikeStoreViewController:LikeStoreModelProtocol {
-    func likeStoresRetrieved(stores: [LikeStore]) {
-        self.likeStores.removeAll()
-        self.likeStores = stores
-        likeStoreTableView.reloadData()
-    }
-    
+extension LikeStoreViewController: LikeStoreDelegate {
     func likeSotresCellClicked(store: LikeStore) {
-        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {return}
-        
+        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "ReviewController") as? ReviewController else {return}
+        detailVC.modalPresentationStyle = .fullScreen
+
         detailVC.storeData = store
         self.present(detailVC, animated: true, completion: nil)
     }
-    
 }
 
 extension LikeStoreViewController:UITableViewDelegate, UITableViewDataSource {

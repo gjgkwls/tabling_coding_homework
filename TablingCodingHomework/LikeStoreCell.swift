@@ -7,29 +7,29 @@
 
 import UIKit
 
+protocol LikeStoreDelegate {
+    func likeSotresCellClicked(store: LikeStore)
+}
+
 class LikeStoreCell: UITableViewCell {
     @IBOutlet weak var storeImgView: UIImageView!
     @IBOutlet weak var classLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var reviewLbl: UILabel!
+    @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var waitingCountLbl: UILabel!
     @IBOutlet weak var isRemoteLbl: UILabel!
     
     var store:LikeStore?
-    var delegate: LikeStoreModelProtocol?
+    var delegate: LikeStoreDelegate?
     
     func displayLikeStore(storeParam: LikeStore){
         self.store = storeParam
         
         classLbl.text = store!.classification
         nameLbl.text = store!.restaurantName
-        
-        // 주소만 회색으로 변경
-        let reviewStr = "\(store!.rating) (\(getReviewCount(store!.reviewCount)))  \(store!.summaryAddress)"
-        let attributedString = NSMutableAttributedString(string: reviewStr)
-        attributedString.addAttribute(.foregroundColor, value: UIColor.gray, range: (reviewStr as NSString).range(of: store!.summaryAddress))
-        reviewLbl.attributedText = attributedString
-        
+        reviewLbl.text = "\(store!.rating) (\(getReviewCount(store!.reviewCount)))"
+        addressLbl.text = store!.summaryAddress
         isRemoteLbl.text =  getIsRemoteResult(store!.isRemoteWaiting, store!.isQuickBooking)
         
         if store!.isQuickBooking {
