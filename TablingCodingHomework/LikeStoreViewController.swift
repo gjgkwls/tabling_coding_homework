@@ -77,6 +77,5 @@ extension LikeStoreViewController:UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // cell 선택시
     }
 }
