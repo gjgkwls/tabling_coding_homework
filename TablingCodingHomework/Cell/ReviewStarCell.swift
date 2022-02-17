@@ -25,7 +25,7 @@ class ReviewStarCell: UITableViewCell {
     }
     
     func setUI() {
-        reviewView.layer.borderWidth = 2
+        reviewView.layer.borderWidth = 1
         reviewView.layer.borderColor = UIColor(named: "gray")?.cgColor
         reviewView.layer.cornerRadius = 6
     }
